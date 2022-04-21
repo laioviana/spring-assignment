@@ -5,17 +5,18 @@ import com.wccgroup.assignment.entity.dto.DistanceCalculationResponse;
 import com.wccgroup.assignment.entity.dto.LocationDTO;
 import com.wccgroup.assignment.service.LocationService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import javax.inject.Inject;
 import javax.validation.Valid;
 import javax.validation.constraints.Size;
 
+@Log4j2
 @RestController
-@RequiredArgsConstructor(onConstructor_ = @Inject)
+@RequiredArgsConstructor
 @Validated
 @RequestMapping(path = "/location", produces = MediaType.APPLICATION_JSON_VALUE)
 public class LocationController {

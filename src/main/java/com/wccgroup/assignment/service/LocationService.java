@@ -1,7 +1,6 @@
 package com.wccgroup.assignment.service;
 
 import com.wccgroup.assignment.entity.Location;
-import com.wccgroup.assignment.entity.dto.DistanceCalculationRequest;
 import com.wccgroup.assignment.entity.dto.DistanceCalculationResponse;
 import com.wccgroup.assignment.entity.dto.LocationDTO;
 import com.wccgroup.assignment.repository.LocationRepository;

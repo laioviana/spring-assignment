@@ -26,6 +26,7 @@ public class LocationController {
     @GetMapping("{postcodeA}/{postcodeB}")
     ResponseEntity<DistanceCalculationResponse> getDistanceByPostCode(@PathVariable(name = "postcodeA") @Valid @Size(min = 8, max = 8, message = "Wrong format of post code. Ex: 99XX 9XX") String postcodeA,
                                                                       @PathVariable(name = "postcodeB") @Valid @Size(min = 8, max = 8, message = "Wrong format of post code. Ex: 99XX 9XX") String postcodeB) {
+        log.info("Calculating distance between {} and {}.", postcodeA, postcodeB);
         return locationService.getDistanceBetweenLocations(postcodeA.toUpperCase(), postcodeB.toUpperCase())
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
@@ -33,6 +34,7 @@ public class LocationController {
 
     @PutMapping("{locationId}")
     ResponseEntity<Location> updateLatLongByLocationId(@PathVariable Long locationId, @RequestBody @Valid LocationDTO locationDTO){
+        log.info("Updating location id {} with lat {} and long {}.", locationId, locationDTO.latitude(), locationDTO.longitude());
         return locationService.updateLocation(locationId, locationDTO)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());

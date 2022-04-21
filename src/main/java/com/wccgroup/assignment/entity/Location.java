@@ -7,7 +7,6 @@ import javax.persistence.*;
 
 @Entity
 @Data
-@Builder
 @Table(name = "location")
 public class Location {
     @Id
@@ -23,7 +22,4 @@ public class Location {
     @Column(name = "longitude")
     private double longitude;
 
-    public Location() {
-
-    }
 }

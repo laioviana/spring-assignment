@@ -13,10 +13,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
     protected void configure(HttpSecurity http) throws Exception
     {
         http
-                .csrf().disable()
-                .authorizeRequests().anyRequest().authenticated()
-                .and()
-                .httpBasic();
+            .csrf().disable()
+            .authorizeRequests().anyRequest().authenticated()
+            .and()
+            .httpBasic();
     }
 
     @Autowired
@@ -24,8 +24,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
             throws Exception
     {
         auth.inMemoryAuthentication()
-                .withUser("admin")
-                .password("{noop}password")
-                .roles("USER");
+            .withUser("admin")
+            .password("{noop}password")
+            .roles("USER");
     }
 }

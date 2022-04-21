@@ -5,19 +5,22 @@ import com.wccgroup.assignment.entity.dto.DistanceCalculationResponse;
 import com.wccgroup.assignment.entity.dto.LocationDTO;
 import com.wccgroup.assignment.repository.LocationRepository;
 import com.wccgroup.assignment.util.DistanceCalculator;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.util.Pair;
 import org.springframework.stereotype.Service;
-import javax.inject.Inject;
 import java.util.Optional;
 
 @Service
 @Slf4j
-@RequiredArgsConstructor(onConstructor_ = @Inject)
 public class LocationService {
 
     private final LocationRepository locationRepository;
+
+    private static final String UNIT = "km";
+
+    public LocationService(LocationRepository locationRepository) {
+        this.locationRepository = locationRepository;
+    }
 
     public Optional<Location> updateLocation(Long locationId, LocationDTO locationDTO){
         return locationRepository.findById(locationId).map(oldLocation -> {
@@ -38,7 +41,7 @@ public class LocationService {
                                         .distance(distance)
                                         .locationA(locationPair.getFirst())
                                         .locationB(locationPair.getSecond())
-                                        .unit("KM")
+                                        .unit(UNIT)
                                         .build()));
     }
 

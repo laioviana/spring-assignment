@@ -1,10 +1,11 @@
 package com.wccgroup.assignment.entity;
 
-import lombok.Builder;
 import lombok.Data;
-
 import javax.persistence.*;
-
+/**
+ * The persistent class for the Location database table.
+ *
+ */
 @Entity
 @Data
 @Table(name = "location")

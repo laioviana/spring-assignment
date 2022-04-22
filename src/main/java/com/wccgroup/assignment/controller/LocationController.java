@@ -23,6 +23,13 @@ public class LocationController {
 
     private final LocationService locationService;
 
+    /**
+     * Calculates the distance between two postcodes
+     *
+     * @param postcodeA first postcode necessary to calculate the distance
+     * @param postcodeB second postcode necessary to calculate the distance
+     * @return ResponseEntity - ResponseEntity with body having object of type {@link com.wccgroup.assignment.entity.dto.DistanceCalculationResponse}
+     */
     @GetMapping("{postcodeA}/{postcodeB}")
     ResponseEntity<DistanceCalculationResponse> getDistanceByPostCode(@PathVariable(name = "postcodeA") @Valid @Size(min = 8, max = 8, message = "Wrong format of post code. Ex: 99XX 9XX") String postcodeA,
                                                                       @PathVariable(name = "postcodeB") @Valid @Size(min = 8, max = 8, message = "Wrong format of post code. Ex: 99XX 9XX") String postcodeB) {
@@ -32,6 +39,13 @@ public class LocationController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    /**
+     * Updates Location with new latitude and longitude
+     *
+     * @param locationId id for the location that will be updated
+     * @param locationDTO a DTO object with latitude and longitude that will be updated
+     * @return ResponseEntity - ResponseEntity with body having the updated object of type {@link com.wccgroup.assignment.entity.Location}
+     */
     @PutMapping("{locationId}")
     ResponseEntity<Location> updateLatLongByLocationId(@PathVariable Long locationId, @RequestBody @Valid LocationDTO locationDTO){
         log.info("Updating location id {} with lat {} and long {}.", locationId, locationDTO.latitude(), locationDTO.longitude());

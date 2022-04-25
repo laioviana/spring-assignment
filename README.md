@@ -10,6 +10,8 @@ Before running the project make sure the Postgres database is populated and runn
 You can do that with Docker using `docker-compose up` in the project root folder 
 Or, add manually with `schema.sql` and `data.sql` located inside the database-init folder.
 
+Please use `admin` and `password`for basic authentication 
+
 You can also access the swagger ui interface in [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
 
 # API Documentation

@@ -1,4 +1,4 @@
-# WCC Group Java Assignment
+# Java Assignment
 
 # Running the project
 
